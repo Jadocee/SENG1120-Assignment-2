@@ -15,34 +15,36 @@
 #include "iostream"
 #include "EToll.h"
 
+template <typename T>
 class Node  {
     public:
         // Create a typedef
-        typedef EToll value_type;
+        //typedef EToll value_type;
 
         // Constructors
-        Node(const value_type& data);
+        Node(const T& data);
         Node();
 
         //Destructors
         ~Node();
 
         // Accessors
-        value_type getData() const; // const at end of declaration prevents func' from changing a member variable.
-        const Node* getNext() const;
-        Node* getNext();
-        const Node* getPrev() const;
-        Node* getPrev();
+        T getData() const; // const at end of declaration prevents func' from changing a member variable.
+        const Node<T>* getNext() const;
+        Node<T>* getNext();
+        const Node<T>* getPrev() const;
+        Node<T>* getPrev();
         
         // Mutatators
-        void setData(const value_type& data);
-        void setNext(Node* next);
-        void setPrev(Node* prev);
+        void setData(const T& data);
+        void setNext(Node<T>* next);
+        void setPrev(Node<T>* prev);
 
     private:
-        Node* next;
-        Node* prev;
-        value_type data;
+        Node<T>* next;
+        Node<T>* prev;
+        T data;
 };
+#include "../Source Files/Node.hpp"
 
 #endif

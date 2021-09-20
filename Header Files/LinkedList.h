@@ -16,31 +16,32 @@
 #include "iostream"
 #include "ostream"
 
+template<typename T>
 class LinkedList {
     public:
         // Chained typedef from Node.h
-        typedef Node::value_type value_type;
+        //typedef Node::value_type value_type;
 
         // Constructors
         LinkedList();
-        LinkedList(value_type&);
+        LinkedList(T&);
 
         // Destructors
         ~LinkedList();
 
         // Getters (accessors)
         int getSize() const;
-        Node* getHead();
-        Node* getTail();
-        Node* getCurr();
+        Node<T>* getHead();
+        Node<T>* getTail();
+        Node<T>* getCurr();
         double totalIncome();
         int count(const string&);
 
         // Setters (mutators)
-        void setCurr(Node* node);
-        void addToHead(value_type&);
+        void setCurr(Node<T>* node);
+        void addToHead(T&);
         //void addToTail(value_type&);
-        void addToTail(value_type&);
+        void addToTail(T&);
         void remove(const string&);
         void removeFromHead();
         void removeCurrent();
@@ -48,21 +49,22 @@ class LinkedList {
         //void order();
 
         // Member operators
-        void operator+=(LinkedList&);
-        void operator-=(LinkedList&);
+        void operator+=(LinkedList<T>&);
+        void operator-=(LinkedList<T>&);
  
     
     private:
-        Node* head;
-        Node* tail;
-        Node* curr;
+        Node<T>* head;
+        Node<T>* tail;
+        Node<T>* curr;
         int size;
         
 };
 
 // overloads
-std::ostream& operator<<(std::ostream& os, LinkedList& list);
+template<typename T>
+std::ostream& operator<<(std::ostream& os, LinkedList<T>& list);
 
-
+#include "../Source Files/LinkedList.hpp"
 
 #endif

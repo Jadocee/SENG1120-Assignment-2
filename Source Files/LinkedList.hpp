@@ -11,32 +11,36 @@
 #include "ostream"
 #include "string"
 
+
 // Constructors
-LinkedList::LinkedList() { // Create Linked List with no data.
+template<typename T>
+LinkedList<T>::LinkedList() { // Create Linked List with no data.
     head = NULL;    // Update head.
     tail = NULL;    // Update tail.
     curr = NULL;    // Update curr.
     size = 0;       // Update size.
 }
 
-LinkedList::LinkedList(value_type& data) {  // Create linked list with data.
-    this->head = new Node(data);    // Update head.
+template<typename T>
+LinkedList<T>::LinkedList(T& data) {  // Create linked list with data.
+    this->head = new Node<T>(data);    // Update head.
     this->tail = this->head;        // Update tail.
     this->curr = this->head;        // Update curr.
     size = 1;                       // Update size.
-
 }
 
 // Destructors
-LinkedList::~LinkedList() {
+template<typename T>
+LinkedList<T>::~LinkedList() {
     while (this->head != NULL) {    // Check if head points to node.
-        this->removeFromHead();     // Remove head. Repeat check until empty.
+        this->LinkedList<T>::removeFromHead();     // Remove head. Repeat check until empty.
     }
     this->tail = NULL;  // Update tail pointer to NULL.
 }
 
 // Mutators
-void LinkedList::removeCurrent() {
+template<typename T>
+void LinkedList<T>::removeCurrent() {
     /*  Precondition:   List is not empty, and curr points to a node.
         Postcondition:  The current node is removed, and the list is 
                         updated.    */
@@ -45,7 +49,7 @@ void LinkedList::removeCurrent() {
     } else if (this->curr == this->tail) {
         this->removeFromTail(); // Remove from tail of list.
     } else {
-        Node* temp = this->curr;    // Create temporary node pointer, pointing to curr.
+        Node<T>* temp = this->curr;    // Create temporary node pointer, pointing to curr.
         this->curr->getPrev()->setNext(this->curr->getNext());
         this->curr->getNext()->setPrev(this->curr->getPrev()); 
         this->curr = this->head;    // Update curr to point to head.
@@ -55,7 +59,8 @@ void LinkedList::removeCurrent() {
     this->curr = this->head;    // Update curr to point to head.                                
 }
 
-void LinkedList::remove(const string& license) {
+template<typename T>
+void LinkedList<T>::remove(const string& license) {
     /*  Precondition:   list is not empty.
         Postcondition:  The node (or nodes) containing the license is
                         removed.    */
@@ -72,11 +77,12 @@ void LinkedList::remove(const string& license) {
     }
 }
 
-void LinkedList::addToHead(value_type& data) {
+template<typename T>
+void LinkedList<T>::addToHead(T& data) {
     /*  Precondition:   No preconditions.
         Postconditon:   A new node is created and added to the beginning
                         of the list, as the new head.   */
-    this->curr = new Node(data);    // Create a new node, and have curr point to it.
+    this->curr = new Node<T>(data);    // Create a new node, and have curr point to it.
     if (this->size == 0) {          // Check if there is no nodes in list.
         this->tail = this->curr;    // Make curr node the tail of the list.
     } else if(this->size > 0 && this->head != NULL) {  // Check if node(s) exist.
@@ -87,11 +93,12 @@ void LinkedList::addToHead(value_type& data) {
     this->size++;               // Update size.
 }
 
-void LinkedList::addToTail(value_type& data) {
+template<typename T>
+void LinkedList<T>::addToTail(T& data) {
     /*  Precondition:   The list isnt empty.
         Postcondition:  A new node is created and added to the end of the list
                         as the new tail.    */
-    this->curr = new Node(data);
+    this->curr = new Node<T>(data);
     if (this->size > 0 && this->tail != NULL) {
         curr->setPrev(tail);    // Update currs prev to point to tail.
         tail->setNext(curr);    // Update tails next to point to curr.
@@ -102,10 +109,11 @@ void LinkedList::addToTail(value_type& data) {
     this->size++;   // Update size.
 }
 
-void LinkedList::removeFromHead() {
+template<typename T>
+void LinkedList<T>::removeFromHead() {
     // Precondition: list isnt empty.
     // Postcondition: The head of the node is removed.
-    Node* n = this->head;   // Create temporary node.
+    Node<T>* n = this->head;   // Create temporary node.
     this->head = this->head->getNext(); // Update head to point to the next node in the linked list.
     if (this->head != NULL) {
         // If head points to a node, update previous to point to NULL.
@@ -119,11 +127,12 @@ void LinkedList::removeFromHead() {
     this->size--;   // Update size.
 }
 
-void LinkedList::removeFromTail() {
+template<typename T>
+void LinkedList<T>::removeFromTail() {
     /*  Precondtions:   List isnt empty. Tail points to a node.
         Postconditions: The current tail is removed and a new tail is 
                         assigned.   */
-    Node* n = this->tail;   // Create temporary node. Point to tail.
+    Node<T>* n = this->tail;   // Create temporary node. Point to tail.
     this->tail = this->tail->getPrev(); // Update tail to previous node.
     if (this->tail != NULL) {   // Check if tail points to a node.
         this->tail->setNext(NULL);  // Update tails next to NULL.
@@ -135,7 +144,8 @@ void LinkedList::removeFromTail() {
 }
 
 // Accessors
-int LinkedList::count(const string& vehicleType) {
+template<typename T>
+int LinkedList<T>::count(const string& vehicleType) {
     /*  Preconditions:  List isnt empty.
         Postcondtions:  The number of vehicles of the type is counted
                         and returned to the function call.  */
@@ -150,31 +160,36 @@ int LinkedList::count(const string& vehicleType) {
     return count;
 }
 
-Node* LinkedList::getTail() {
+template<typename T>
+Node<T>* LinkedList<T>::getTail() {
     /*  Precondition:   List isnt empty.
         Postcondition:  Tail is returned to the function caller.    */
     return this->tail;
 }
 
-Node* LinkedList::getCurr() {
+template<typename T>
+Node<T>* LinkedList<T>::getCurr() {
     /*  Precondition:   List isnt empty.
         Postcondition:  Curr is returned to the function caller.    */
     return LinkedList::curr;
 }
 
-Node* LinkedList::getHead() {
+template<typename T>
+Node<T>* LinkedList<T>::getHead() {
     /*  Precondition:   List isnt empty.
         Postcondition:  head is returned to the function caller.    */
     return LinkedList::head;
 }
 
-int LinkedList::getSize() const {
+template<typename T>
+int LinkedList<T>::getSize() const {
     /*  Precondition:   None.
         Postcondition:  List size is returned to the function caller.    */
     return size;
 }
 
-double LinkedList::totalIncome() {
+template<typename T>
+double LinkedList<T>::totalIncome() {
     /*  Precondition:   List isnt empty.
         Postcondition:  Total charged per vehicle is calculated and returned to
                         the function caller.    */
@@ -187,12 +202,14 @@ double LinkedList::totalIncome() {
     return t;
 }
 
-void LinkedList::setCurr(Node* node) {
+template<typename T>
+void LinkedList<T>::setCurr(Node<T>* node) {
     this->curr = node; // Update curr to point to desired node.
 }
 
 // Overload << operator
-std::ostream& operator<<(std::ostream& out, LinkedList& list){
+template<typename T>
+std::ostream& operator<<(std::ostream& out, LinkedList<T>& list){
     /*  Precondition:   List isnt empty.
         Postcondition:  Return a concatination of strings containing the licence
                         and type of each vehicle, or whether the list is empty.*/
@@ -210,15 +227,16 @@ std::ostream& operator<<(std::ostream& out, LinkedList& list){
 
 // Member Operators
 //  Overload += operator
-void LinkedList::operator+=(LinkedList& list) {
+template<typename T>
+void LinkedList<T>::operator+=(LinkedList<T>& list) {
     list.curr = list.head;    
     for (int i = 0; i < list.size; i++) {
        if (this->size == 0) {
-            this->curr = new Node(list.curr->getData());
+            this->curr = new Node<T>(list.curr->getData());
             this->head = this->curr;
             this->tail = this->curr;
         } else {
-            this->curr = new Node(list.curr->getData());
+            this->curr = new Node<T>(list.curr->getData());
             this->curr->setPrev(this->tail);
             this->tail->setNext(this->curr);
             this->tail = this->curr;
@@ -229,7 +247,8 @@ void LinkedList::operator+=(LinkedList& list) {
 }
 
 //  Overload -= operator
-void LinkedList::operator-=(LinkedList& list) {
+template<typename T>
+void LinkedList<T>::operator-=(LinkedList<T>& list) {
     /*  Precondition:   List isnt empty.
         Postcondition:  The passed lists content is removed from the linked list.    */
     list.curr = list.head;  // Update list curr to point to list head.
@@ -237,7 +256,7 @@ void LinkedList::operator-=(LinkedList& list) {
         this->curr = this->head; // Update curr to point to head.
         for(int i = 0; i < this->size; i++) {   // Loop this->size times.
             if(this->curr->getData() == list.curr->getData()) {
-                Node* n = this->curr->getNext(); // Create temporary node pointer and point it to currs next.
+                Node<T>* n = this->curr->getNext(); // Create temporary node pointer and point it to currs next.
                 this->removeCurrent(); // Remove current node.
                 this->curr = n; // Update curr to point to n.
             } else {

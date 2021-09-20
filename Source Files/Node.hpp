@@ -7,61 +7,67 @@
 /**  to access the nodes and its data.             **/
 /****************************************************/
 
-#include "Node.h"
-
+#include "../Header Files/Node.h"
 // Constructors
-
-Node::Node(const value_type& data) {
+template<typename T>
+Node<T>::Node(const T& data) {
     this->data = data;
     next = NULL;
     prev = NULL;
 }
 
-Node::Node() {
+template<typename T>
+Node<T>::Node() {
     next = NULL;
     prev = NULL;
 }
 
 
 // Destructors
-
-Node::~Node() {
+template<typename T>
+Node<T>::~Node() {
     next = NULL;
     prev = NULL;
 }
 
 // Getters (Accessors)
-
-Node::value_type Node::getData() const {
+template<typename T>
+T Node<T>::getData() const {
     return data;
 }
 
-const Node* Node::getNext() const {
+template<typename T>
+const Node<T>* Node<T>::getNext() const {
     return next;
 }
 
-Node* Node::getNext() {
+template<typename T>
+Node<T>* Node<T>::getNext() {
     return next;
 }
 
-const Node* Node::getPrev() const {
+template<typename T>
+const Node<T>* Node<T>::getPrev() const {
     return prev;
 }
 
-Node* Node::getPrev() {
+template<typename T>
+Node<T>* Node<T>::getPrev() {
     return prev;
 }
 
 // Setters (Mutators)
-
-void Node::setData(const value_type& data) {
-    Node::data = data;
+template<typename T>
+void Node<T>::setData(const T& data) {
+    Node<T>::data = data;
 }
 
-void Node::setNext(Node* next) {
-    Node::next = next;
+template<typename T>
+void Node<T>::setNext(Node<T>* next) {
+    Node<T>::next = next;
 }
 
-void Node::setPrev(Node* prev) {
-    Node::prev = prev;
+template<typename T>
+void Node<T>::setPrev(Node<T>* prev) {
+    Node<T>::prev = prev;
 }
