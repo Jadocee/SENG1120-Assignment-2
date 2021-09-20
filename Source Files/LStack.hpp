@@ -34,6 +34,11 @@ double LStack<T>::totalIncome() {
     return this->list.totalIncome();
 }
 
+template<typename T>
+LinkedList<T>& LStack<T>::getList() {
+    return this->list;
+}
+
 // Mutators
 template<typename T>
 void LStack<T>::push(T& i) {
@@ -53,8 +58,8 @@ void LStack<T>::remove(const string& license) {
 
 // Operator Overloads
 template<typename T>
-std::ostream& operator<<(std::ostream& out, LStack<T>& item) {
-    out << "test";
+std::ostream& operator<<(std::ostream& out, LStack<T>& stack) {
+    out << stack.getList();
     return out;
 }
 

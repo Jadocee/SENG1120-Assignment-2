@@ -19,6 +19,7 @@ class LStack {
         int size() const;
         int count(const string& type);
         double totalIncome();
+        LinkedList<T>& getList();
     // Mutators
         T& pop();
         void push(T& i);
@@ -34,7 +35,7 @@ class LStack {
 
 // Overload Operators
 template<typename T>
-std::ostream& operator<<(std::ostream& out, LStack<T>& item);
+std::ostream& operator<<(std::ostream& out, LStack<T>& stack);
 
 
 
