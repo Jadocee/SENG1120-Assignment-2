@@ -61,7 +61,7 @@ class LinkedList {
         
 };
 
-// overloads
+// Operator Overloads
 template<typename T>
 std::ostream& operator<<(std::ostream& os, LinkedList<T>& list);
 
