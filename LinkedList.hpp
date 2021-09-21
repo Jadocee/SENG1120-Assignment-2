@@ -122,8 +122,7 @@ void LinkedList<T>::removeFromHead() {
         // If list is empty, make tail point to NULL.
         this->tail = NULL;
     }
-    // Remove temporary node.
-    delete n;
+    delete n;       // Remove temporary node.
     this->size--;   // Update size.
 }
 
@@ -171,21 +170,21 @@ template<typename T>
 Node<T>* LinkedList<T>::getCurr() {
     /*  Precondition:   List isnt empty.
         Postcondition:  Curr is returned to the function caller.    */
-    return LinkedList::curr;
+    return this->curr;
 }
 
 template<typename T>
 Node<T>* LinkedList<T>::getHead() {
     /*  Precondition:   List isnt empty.
         Postcondition:  head is returned to the function caller.    */
-    return LinkedList::head;
+    return this->head;
 }
 
 template<typename T>
 int LinkedList<T>::getSize() const {
     /*  Precondition:   None.
         Postcondition:  List size is returned to the function caller.    */
-    return size;
+    return this->size;
 }
 
 template<typename T>

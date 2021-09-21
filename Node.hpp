@@ -33,7 +33,7 @@ Node<T>::~Node() {
 // Getters (Accessors)
 template<typename T>
 T Node<T>::getData() const {
-    return data;
+    return this->data;
 }
 
 template<typename T>
@@ -48,12 +48,12 @@ Node<T>* Node<T>::getNext() {
 
 template<typename T>
 const Node<T>* Node<T>::getPrev() const {
-    return prev;
+    return this->prev;
 }
 
 template<typename T>
 Node<T>* Node<T>::getPrev() {
-    return prev;
+    return this->prev;
 }
 
 // Setters (Mutators)

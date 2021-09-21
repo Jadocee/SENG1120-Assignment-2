@@ -16,6 +16,11 @@ T& LStack<T>::peek() {
 }
 
 template<typename T>
+int LStack<T>::size() const {
+    return this->list.getSize();
+}
+
+template<typename T>
 bool LStack<T>::isEmpty() {
     if (this->list.getHead() == NULL) {
         return true;
@@ -47,8 +52,10 @@ void LStack<T>::push(T& i) {
 }
 
 template<typename T>
-T& LStack<T>::pop() {
-    return list.removeFromHead();
+T LStack<T>::pop() {
+    T data = list.getHead()->getData();
+    list.removeFromHead();
+    return data;
 }
 
 template<typename T>

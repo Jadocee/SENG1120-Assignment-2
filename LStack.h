@@ -21,7 +21,7 @@ class LStack {
         double totalIncome();
         LinkedList<T>& getList();
     // Mutators
-        T& pop();
+        T pop();
         void push(T& i);
         void remove(const string& license);
     // Overload Member Operators

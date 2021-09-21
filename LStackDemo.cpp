@@ -95,5 +95,6 @@ int main()
 	cout << "Daily report: " << dailyReport  << endl << endl;
 	
 	cout << "The program has finished." << endl;
+	
 	return 0;
 }
