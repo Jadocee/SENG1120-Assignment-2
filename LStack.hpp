@@ -1,5 +1,5 @@
 
-#include "../Header Files/LStack.h"
+#include "LStack.h"
 
 // Constructors
 template<typename T>
