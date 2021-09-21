@@ -38,12 +38,12 @@ T Node<T>::getData() const {
 
 template<typename T>
 const Node<T>* Node<T>::getNext() const {
-    return next;
+    return this->next;
 }
 
 template<typename T>
 Node<T>* Node<T>::getNext() {
-    return next;
+    return this->next;
 }
 
 template<typename T>
