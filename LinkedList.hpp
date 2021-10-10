@@ -133,6 +133,15 @@ Node<T>* LinkedList<T>::getTail() const {
 }
 
 template<typename T>
+bool LinkedList<T>::isEmpty() const {
+    if(this->head == NULL) {
+        return true;
+    } else {
+        return false;
+    }
+}
+
+template<typename T>
 Node<T>* LinkedList<T>::getCurr() const {
     /*  Precondition:   List isnt empty.
         Postcondition:  Curr is returned to the function caller.    */

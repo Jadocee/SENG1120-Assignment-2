@@ -32,11 +32,7 @@ int LStack<T>::getSize() const {
 
 template<typename T>
 bool LStack<T>::isEmpty() const {
-    if (this->list.getHead() == NULL) {
-        return true;
-    } else {
-        return false;
-    }
+    return this->list.isEmpty();
 }
 
 // Mutators

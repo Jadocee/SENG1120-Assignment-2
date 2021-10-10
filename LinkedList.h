@@ -34,6 +34,7 @@ class LinkedList {
         Node<T>* getHead() const;
         Node<T>* getTail() const;
         Node<T>* getCurr() const;
+        bool isEmpty() const;
 
         // Setters (mutators)
         void setCurr(Node<T>* node);
