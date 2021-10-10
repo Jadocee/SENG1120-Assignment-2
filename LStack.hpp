@@ -31,7 +31,7 @@ int LStack<T>::getSize() const {
 }
 
 template<typename T>
-bool LStack<T>::isEmpty() {
+bool LStack<T>::isEmpty() const {
     if (this->list.getHead() == NULL) {
         return true;
     } else {
@@ -41,7 +41,7 @@ bool LStack<T>::isEmpty() {
 
 // Mutators
 template<typename T>
-void LStack<T>::push(T& i) {
+void LStack<T>::push(const T& i) {
     //TODO stack overflow
     this->list.addToHead(i);
     this->size++;

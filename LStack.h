@@ -15,11 +15,11 @@ class LStack {
         ~LStack();
     // Accessors
         T peek();
-        bool isEmpty();
+        bool isEmpty() const;
         int getSize() const;
     // Mutators
         T pop();
-        void push(T& i);
+        void push(const T& i);
     // Overload Member Operators
         void operator+=(LStack<T>&);
         void operator-=(LStack<T>&);

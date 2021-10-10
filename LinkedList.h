@@ -31,15 +31,15 @@ class LinkedList {
 
         // Getters (accessors)
         int getSize() const;
-        Node<T>* getHead();
-        Node<T>* getTail();
-        Node<T>* getCurr();
+        Node<T>* getHead() const;
+        Node<T>* getTail() const;
+        Node<T>* getCurr() const;
 
         // Setters (mutators)
         void setCurr(Node<T>* node);
-        void addToHead(T&);
+        void addToHead(const T&);
         //void addToTail(value_type&);
-        void addToTail(T&);
+        void addToTail(const T&);
         void removeFromHead();
         void removeCurrent();
         void removeFromTail();

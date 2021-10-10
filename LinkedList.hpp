@@ -60,7 +60,7 @@ void LinkedList<T>::removeCurrent() {
 }
 
 template<typename T>
-void LinkedList<T>::addToHead(T& data) {
+void LinkedList<T>::addToHead(const T& data) {
     /*  Precondition:   No preconditions.
         Postconditon:   A new node is created and added to the beginning
                         of the list, as the new head.   */
@@ -76,7 +76,7 @@ void LinkedList<T>::addToHead(T& data) {
 }
 
 template<typename T>
-void LinkedList<T>::addToTail(T& data) {
+void LinkedList<T>::addToTail(const T& data) {
     /*  Precondition:   The list isnt empty.
         Postcondition:  A new node is created and added to the end of the list
                         as the new tail.    */
@@ -126,21 +126,21 @@ void LinkedList<T>::removeFromTail() {
 
 // Accessors
 template<typename T>
-Node<T>* LinkedList<T>::getTail() {
+Node<T>* LinkedList<T>::getTail() const {
     /*  Precondition:   List isnt empty.
         Postcondition:  Tail is returned to the function caller.    */
     return this->tail;
 }
 
 template<typename T>
-Node<T>* LinkedList<T>::getCurr() {
+Node<T>* LinkedList<T>::getCurr() const {
     /*  Precondition:   List isnt empty.
         Postcondition:  Curr is returned to the function caller.    */
     return this->curr;
 }
 
 template<typename T>
-Node<T>* LinkedList<T>::getHead() {
+Node<T>* LinkedList<T>::getHead() const {
     /*  Precondition:   List isnt empty.
         Postcondition:  head is returned to the function caller.    */
     return this->head;
