@@ -43,7 +43,5 @@ class LStack {
 template<typename T>
 std::ostream& operator<<(std::ostream& out, LStack<T>& stack);
 
-
-
 #include "LStack.hpp"
 #endif

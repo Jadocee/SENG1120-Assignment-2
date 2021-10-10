@@ -10,10 +10,6 @@
 /****************************************************/
 
 #include "LinkedList.h"
-#include "cstdlib"
-#include "ostream"
-#include "string"
-
 
 // Constructors
 template<typename T>
@@ -131,12 +127,14 @@ void LinkedList<T>::removeFromTail() {
 template<typename T>
 T& LinkedList<T>::getTail() const {
     /*  Precondition:   List isnt empty.
-        Postcondition:  Tail is returned to the function caller.    */
+        Postcondition:  The data from tail is returned to the function caller.    */
     return this->tail->getData();
 }
 
 template<typename T>
 bool LinkedList<T>::isEmpty() const {
+    /*  Precondition:   None.
+        Postcondition:  Returns a boolean indicating whether the head of the linked list is NULL or not. */
     if(this->head == NULL) {
         return true;
     } else {
@@ -147,14 +145,14 @@ bool LinkedList<T>::isEmpty() const {
 template<typename T>
 T& LinkedList<T>::getCurr() const {
     /*  Precondition:   List isnt empty.
-        Postcondition:  Curr is returned to the function caller.    */
+        Postcondition:  The data from curr is returned to the function caller.    */
     return this->curr->getData();
 }
 
 template<typename T>
 T& LinkedList<T>::getHead() const {
     /*  Precondition:   List isnt empty.
-        Postcondition:  head is returned to the function caller.    */
+        Postcondition:  The data from head is returned to the function caller.    */
     return this->head->getData();
 }
 
@@ -167,65 +165,7 @@ int LinkedList<T>::getSize() const {
 
 template<typename T>
 void LinkedList<T>::setCurr(Node<T>* node) {
+    /*  Precondition:   The list isn't empty.
+        Postcondition:  The curr now points to the parsed node. */
     this->curr = node; // Update curr to point to desired node.
-}
-
-// Overload << operator
-template<typename T>
-std::ostream& operator<<(std::ostream& out, LinkedList<T>& list){
-    /*  Precondition:   List isnt empty.
-        Postcondition:  Return a concatination of strings containing the licence
-                        and type of each vehicle, or whether the list is empty.*/
-    if (list.getSize() > 0) {   // Check if the list contains one or more nodes.
-        list.setCurr(list.getHead());   // Update curr to point to head.
-        for (int i = 0; i < list.getSize(); i++) {  // Loop list size times.
-            out << "(" << list.getCurr()->getData().get_licence() << "," << list.getCurr()->getData().get_type() << ")\t";  // Concatenate strings containing licence and type.
-            list.setCurr(list.getCurr()->getNext()); // Update lists curr to point to the next node in the list.
-        }
-    } else {
-        out << "List is empty.";    // If list is empty, move "list is empty" into out.
-    }
-    return out; 
-}
-
-// Member Operators
-//  Overload += operator
-template<typename T>
-void LinkedList<T>::operator+=(LinkedList<T>& list) {
-    list.curr = list.head;    
-    for (int i = 0; i < list.size; i++) {
-       if (this->size == 0) {
-            this->curr = new Node<T>(list.curr->getData());
-            this->head = this->curr;
-            this->tail = this->curr;
-        } else {
-            this->curr = new Node<T>(list.curr->getData());
-            this->curr->setPrev(this->tail);
-            this->tail->setNext(this->curr);
-            this->tail = this->curr;
-        }
-        this->size++;
-        list.curr = list.curr->getNext(); 
-    }
-}
-
-//  Overload -= operator
-template<typename T>
-void LinkedList<T>::operator-=(LinkedList<T>& list) {
-    /*  Precondition:   List isnt empty.
-        Postcondition:  The passed lists content is removed from the linked list.    */
-    list.curr = list.head;  // Update list curr to point to list head.
-    for(int j = 0; j < list.size; j++) {    // Loop list size times.
-        this->curr = this->head; // Update curr to point to head.
-        for(int i = 0; i < this->size; i++) {   // Loop this->size times.
-            if(this->curr->getData() == list.curr->getData()) {
-                Node<T>* n = this->curr->getNext(); // Create temporary node pointer and point it to currs next.
-                this->removeCurrent(); // Remove current node.
-                this->curr = n; // Update curr to point to n.
-            } else {
-                this->curr = this->curr->getNext(); // Move current to next node in list.
-            }
-        }
-        list.curr = list.curr->getNext(); // Move to next node.
-    }
 }

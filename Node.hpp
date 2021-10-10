@@ -35,41 +35,57 @@ Node<T>::~Node() {
 // Getters (Accessors)
 template<typename T>
 T& Node<T>::getData() {
+    /*  Precondition:   None.
+        Postcondition:  The node's data is returned. */
     return this->data;
 }
 
 template<typename T>
 const Node<T>* Node<T>::getNext() const {
+    /*  Precondition:   None.
+        Postcondition:  This nodes next node pointer is returned. */
     return this->next;
 }
 
 template<typename T>
 Node<T>* Node<T>::getNext() {
+    /*  Precondition:   None.
+        Postcondition:  This nodes next node pointer is returned. */
     return this->next;
 }
 
 template<typename T>
 const Node<T>* Node<T>::getPrev() const {
+        /*  Precondition:   None.
+            Postcondition:  This nodes previous node pointer is returned. */
     return this->prev;
 }
 
 template<typename T>
 Node<T>* Node<T>::getPrev() {
+        /*  Precondition:   None.
+        Postcondition:  This nodes previous node pointer is returned. */
     return this->prev;
 }
 
 // Setters (Mutators)
 template<typename T>
 void Node<T>::setData(const T& data) {
+        /*  Precondition:   None.
+            Postcondition:  The nodes data is updated with the parsed data. */    
     Node<T>::data = data;
 }
 
 template<typename T>
 void Node<T>::setNext(Node<T>* next) {
+        /*  Precondition:   None.
+        Postcondition:  This nodes next node pointer is updated to point to the parsed node pointer. */
     Node<T>::next = next;
 }
 
 template<typename T>
 void Node<T>::setPrev(Node<T>* prev) {
+    /*  Precondition:   None.
+        Postcondition:  This nodes previous node pointer is updated to point to the parsed node pointer. */
     Node<T>::prev = prev;
 }

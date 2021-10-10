@@ -10,18 +10,14 @@
 #ifndef LINKED_LIST
 #define LINKED_LIST
 
-#include "cstdlib"
+#include <cstdlib>
 #include "Node.h"
-#include "string"
-#include "iostream"
-#include "ostream"
+#include <string>
+#include <ostream>
 
 template<typename T>
 class LinkedList {
     public:
-        // Chained typedef from Node.h
-        //typedef Node::value_type value_type;
-
         // Constructors
         LinkedList();
         LinkedList(T&);
@@ -29,27 +25,20 @@ class LinkedList {
         // Destructors
         ~LinkedList();
 
-        // Getters (accessors)
+        // Accessors
         int getSize() const;
         T& getHead() const;
         T& getTail() const;
         T& getCurr() const;
         bool isEmpty() const;
 
-        // Setters (mutators)
+        // Mutators
         void setCurr(Node<T>* node);
         void addToHead(const T&);
-        //void addToTail(value_type&);
         void addToTail(const T&);
         void removeFromHead();
         void removeCurrent();
-        void removeFromTail();
-        //void order();
-
-        // Member operators
-        void operator+=(LinkedList<T>&);
-        void operator-=(LinkedList<T>&);
- 
+        void removeFromTail(); 
     
     private:
         Node<T>* head;
@@ -58,10 +47,6 @@ class LinkedList {
         int size;
         
 };
-
-// Operator Overloads
-template<typename T>
-std::ostream& operator<<(std::ostream& os, LinkedList<T>& list);
 
 #include "LinkedList.hpp"
 

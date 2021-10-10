@@ -26,7 +26,7 @@ class Node  {
         ~Node();
 
         // Accessors
-        T& getData(); // const at end of declaration prevents func' from changing a member variable.
+        T& getData();
         const Node<T>* getNext() const;
         Node<T>* getNext();
         const Node<T>* getPrev() const;
