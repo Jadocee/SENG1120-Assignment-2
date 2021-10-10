@@ -1,3 +1,12 @@
+/****************************************************/
+/**  Assignment 2 - TollStack Source File          **/
+/**  Jaydon Cameron                                **/
+/**  SENG1120 Data Structures                      **/
+/**  C3329145                                      **/
+/**  This source file contains the implementation  **/
+/**  of the functions in the TollStack.h file.     **/
+/****************************************************/
+
 #include "TollStack.h"
 
 template<typename T>
@@ -83,11 +92,7 @@ void TollStack<T>::remove(const string& license) {
             tempData = temp.pop();
             this->push(tempData);
         }
-        //delete tempData;
-        //delete temp;
     } catch(exception& e) {
         cout << "Exception: " << e.what() << endl;
     }
-    //delete temp;
-    //this->list.remove(license);
 }

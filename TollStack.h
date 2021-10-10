@@ -1,3 +1,12 @@
+/****************************************************/
+/**  Assignment 2 - TollStack Header File          **/
+/**  Jaydon Cameron                                **/
+/**  SENG1120 Data Structures                      **/
+/**  C3329145                                      **/
+/**  This header file contains the functions used  **/
+/**  by the TollStack.hpp file.                    **/
+/****************************************************/
+
 #ifndef TOLLSTACK
 #define TOLLSTACK
 

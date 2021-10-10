@@ -1,3 +1,11 @@
+/*********************************************************/
+/**     Assignment 2 - LStack Source File               **/
+/**     Jaydon Cameron                                  **/
+/**     SENG1120 Data Structures                        **/
+/**     C3329145                                        **/
+/**     This source file contains the implementation of **/
+/**     the functions in the LStack.h file.             **/
+/*********************************************************/
 
 #include "LStack.h"
 #include <string>
@@ -16,13 +24,12 @@ LStack<T>::~LStack() {
     while (this->size > 0) {
         this->pop();
     }
-    //delete this->list;
 }
 
 // Accessors
 template<typename T>
-T LStack<T>::peek() {
-    return this->list.getHead()->getData();
+T& LStack<T>::peek() {
+    return this->list.getHead();
 }
 
 template<typename T>
@@ -45,7 +52,7 @@ void LStack<T>::push(const T& i) {
 
 template<typename T>
 T LStack<T>::pop() {
-    T data = list.getHead()->getData();
+    T data = list.getHead();
     this->list.removeFromHead();
     this->size--;
     return data;

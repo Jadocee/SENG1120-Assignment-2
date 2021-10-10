@@ -1,10 +1,10 @@
 /****************************************************/
-/**  Assignment 1 - Linked List Header File        **/
+/**  Assignment 2 - Linked List Header File        **/
 /**  Jaydon Cameron                                **/
 /**  SENG1120 Data Structures                      **/
 /**  C3329145                                      **/
 /**  This header file contains the functions used  **/
-/**  by the LinkedListDemo cpp file.               **/
+/**  by the LinkedList.hpp file.                   **/
 /****************************************************/
 
 #ifndef LINKED_LIST
@@ -31,9 +31,9 @@ class LinkedList {
 
         // Getters (accessors)
         int getSize() const;
-        Node<T>* getHead() const;
-        Node<T>* getTail() const;
-        Node<T>* getCurr() const;
+        T& getHead() const;
+        T& getTail() const;
+        T& getCurr() const;
         bool isEmpty() const;
 
         // Setters (mutators)

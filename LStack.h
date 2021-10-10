@@ -1,3 +1,12 @@
+/*********************************************************/
+/**     Assignment 2 - LStack Header File               **/
+/**     Jaydon Cameron                                  **/
+/**     SENG1120 Data Structures                        **/
+/**     C3329145                                        **/
+/**     This header file contains the functions used by **/
+/**     the LStack.hpp file.                            **/
+/*********************************************************/
+
 
 #ifndef LSTACK
 #define LSTACK
@@ -14,7 +23,7 @@ class LStack {
     // Destructor
         ~LStack();
     // Accessors
-        T peek();
+        T& peek();
         bool isEmpty() const;
         int getSize() const;
     // Mutators

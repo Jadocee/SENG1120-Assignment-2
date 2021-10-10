@@ -1,9 +1,12 @@
 /****************************************************/
-/**  Assignment 1 - Linked List Source File        **/
+/**  Assignment 2 - Linked List Source File        **/
 /**  Jaydon Cameron                                **/
 /**  SENG1120 Data Structures                      **/
 /**  C3329145                                      **/
-/**  This source file contains the functions for working with the linked list and accessing the nodes.            **/
+/**  This source file contains the implementation  **/
+/**  of the functions in the LinkedList.h file for **/
+/**  working with the linked list and accessing    **/
+/**  the nodes.                                    **/
 /****************************************************/
 
 #include "LinkedList.h"
@@ -126,10 +129,10 @@ void LinkedList<T>::removeFromTail() {
 
 // Accessors
 template<typename T>
-Node<T>* LinkedList<T>::getTail() const {
+T& LinkedList<T>::getTail() const {
     /*  Precondition:   List isnt empty.
         Postcondition:  Tail is returned to the function caller.    */
-    return this->tail;
+    return this->tail->getData();
 }
 
 template<typename T>
@@ -142,17 +145,17 @@ bool LinkedList<T>::isEmpty() const {
 }
 
 template<typename T>
-Node<T>* LinkedList<T>::getCurr() const {
+T& LinkedList<T>::getCurr() const {
     /*  Precondition:   List isnt empty.
         Postcondition:  Curr is returned to the function caller.    */
-    return this->curr;
+    return this->curr->getData();
 }
 
 template<typename T>
-Node<T>* LinkedList<T>::getHead() const {
+T& LinkedList<T>::getHead() const {
     /*  Precondition:   List isnt empty.
         Postcondition:  head is returned to the function caller.    */
-    return this->head;
+    return this->head->getData();
 }
 
 template<typename T>

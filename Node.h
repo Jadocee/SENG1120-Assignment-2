@@ -1,10 +1,10 @@
 /****************************************************/
-/**  Assignment 1 - Node Header File        **/
+/**  Assignment 2 - Node Header File               **/
 /**  Jaydon Cameron                                **/
 /**  SENG1120 Data Structures                      **/
 /**  C3329145                                      **/
 /**  This header file contains the functions used  **/
-/**  by the LinkedListDemo cpp file.               **/
+/**  by the Node.hpp file.                         **/
 /****************************************************/
 
 #ifndef NODE
@@ -18,9 +18,6 @@
 template <typename T>
 class Node  {
     public:
-        // Create a typedef
-        //typedef EToll value_type;
-
         // Constructors
         Node(const T& data);
         Node();
@@ -29,7 +26,7 @@ class Node  {
         ~Node();
 
         // Accessors
-        T getData() const; // const at end of declaration prevents func' from changing a member variable.
+        T& getData(); // const at end of declaration prevents func' from changing a member variable.
         const Node<T>* getNext() const;
         Node<T>* getNext();
         const Node<T>* getPrev() const;
@@ -39,8 +36,6 @@ class Node  {
         void setData(const T& data);
         void setNext(Node<T>* next);
         void setPrev(Node<T>* prev);
-        //void set_license(T& license);
-        //void operator!=(T&);
 
     private:
         Node<T>* next;
