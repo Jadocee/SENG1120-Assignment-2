@@ -1,7 +1,7 @@
 CC=g++
 CFLAGS=-c -Wall -std=c++98
 LDFLAGS=
-SOURCES= TollStackDemo.cpp TollStack.h LStack.h LinkedList.h Node.h EToll.cpp
+SOURCES= LStackDemo.cpp LStack.h LinkedList.h Node.h EToll.cpp
 OBJECTS=$(SOURCES:.cpp=.o)
 EXECUTABLE=a2
 

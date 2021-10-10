@@ -14,23 +14,20 @@ class LStack {
     // Destructor
         ~LStack();
     // Accessors
-        T& peek();
+        T peek();
         bool isEmpty();
-        int size() const;
-        int count(const string& type);
-        double totalIncome();
-        LinkedList<T>& getList();
+        int getSize() const;
     // Mutators
         T pop();
         void push(T& i);
-        void remove(const string& license);
     // Overload Member Operators
         void operator+=(LStack<T>&);
         void operator-=(LStack<T>&);
+        
 
     private:
         LinkedList<T> list;
-        int used;
+        int size;
 };
 
 // Overload Operators

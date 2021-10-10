@@ -8,6 +8,7 @@
 /****************************************************/
 
 #include "Node.h"
+#include "string"
 // Constructors
 template<typename T>
 Node<T>::Node(const T& data) {
@@ -67,7 +68,17 @@ void Node<T>::setNext(Node<T>* next) {
     Node<T>::next = next;
 }
 
+/*template<typename T>
+void Node<T>::set_license(T& license) {
+    this->data.set_licence(license);
+}*/
+
 template<typename T>
 void Node<T>::setPrev(Node<T>* prev) {
     Node<T>::prev = prev;
 }
+
+//template<typename T>
+//void Node<T>::operator!=(T& license) {
+
+//}

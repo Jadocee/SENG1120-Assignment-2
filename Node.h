@@ -39,6 +39,8 @@ class Node  {
         void setData(const T& data);
         void setNext(Node<T>* next);
         void setPrev(Node<T>* prev);
+        //void set_license(T& license);
+        //void operator!=(T&);
 
     private:
         Node<T>* next;
