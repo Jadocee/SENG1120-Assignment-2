@@ -60,24 +60,6 @@ void LinkedList<T>::removeCurrent() {
 }
 
 template<typename T>
-void LinkedList<T>::remove(const string& license) {
-    /*  Precondition:   list is not empty.
-        Postcondition:  The node (or nodes) containing the license is
-                        removed.    */
-    this->curr = this->head;    // Update current to point to head.
-    for (int i = 0; i < this->size; i++) {  // Cycle through each node, using curr as an index.
-        if (this->curr->getData().get_licence() == license) {   // Check current node contains the license.
-            //Node* temp = this->curr->getNext(); // Create temporary node pointer and point it to next node.
-            this->removeCurrent();  // Remove current node.
-            //this->curr = temp;      // Update curr to point to the same node as temp.
-            break;
-        } else {
-            this->curr = this->curr->getNext(); // Otherwise, update curr to point to the next node in the list.
-        }
-    }
-}
-
-template<typename T>
 void LinkedList<T>::addToHead(T& data) {
     /*  Precondition:   No preconditions.
         Postconditon:   A new node is created and added to the beginning
@@ -144,22 +126,6 @@ void LinkedList<T>::removeFromTail() {
 
 // Accessors
 template<typename T>
-int LinkedList<T>::count(const string& vehicleType) {
-    /*  Preconditions:  List isnt empty.
-        Postcondtions:  The number of vehicles of the type is counted
-                        and returned to the function call.  */
-    this->curr = this->head;    // Update curr to point to head.
-    int count = 0;              // Declare an integer "count" and assign 0.
-    for (int i = 0; i < this->size; i++) {  // Loop list size times.
-        if(this->curr->getData().get_type() == vehicleType) {   // Check current node contains vehicle type.
-            count++;                            // Update count.
-        }
-        this->curr = this->curr->getNext();     // Update curr to point to the next node in the list.
-    }
-    return count;
-}
-
-template<typename T>
 Node<T>* LinkedList<T>::getTail() {
     /*  Precondition:   List isnt empty.
         Postcondition:  Tail is returned to the function caller.    */
@@ -185,20 +151,6 @@ int LinkedList<T>::getSize() const {
     /*  Precondition:   None.
         Postcondition:  List size is returned to the function caller.    */
     return this->size;
-}
-
-template<typename T>
-double LinkedList<T>::totalIncome() {
-    /*  Precondition:   List isnt empty.
-        Postcondition:  Total charged per vehicle is calculated and returned to
-                        the function caller.    */
-    this->curr = this->head;    // Update curr to point to head.
-    double t = 0;               // Declare double "t" and assign 0.
-    for (int i = 0; i < this->size; i++) {  // Loop list size times.
-        t += curr->getData().get_charge();  // Add charge to t.
-        this->curr = this->curr->getNext(); // Update curr to point to next node in list.
-    }
-    return t;
 }
 
 template<typename T>

@@ -34,15 +34,12 @@ class LinkedList {
         Node<T>* getHead();
         Node<T>* getTail();
         Node<T>* getCurr();
-        double totalIncome();
-        int count(const string&);
 
         // Setters (mutators)
         void setCurr(Node<T>* node);
         void addToHead(T&);
         //void addToTail(value_type&);
         void addToTail(T&);
-        void remove(const string&);
         void removeFromHead();
         void removeCurrent();
         void removeFromTail();
